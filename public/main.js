@@ -2,17 +2,23 @@
 
 // For storing user's theme selection in cookies
 function storeTheme(themeName) {
-    // Your code here
+    const themeCookie = `theme=${themeName}; max-age=15`;
+    document.cookie = themeCookie;
 }
 
 // For restoring theme from cookies, if selected by the user in the past
 function restoreTheme() {
-    // Your code here
+    const themeName = document.cookie.split("=")[1];
+    if (themeName) {
+        setTheme(themeName);
+    }
 }
 
 // For clearing theme selection from cookies (reset to default)
 function clearTheme() {
-    // Your code here
+    console.log("testing");
+    document.cookie = "theme=; max-age=0";
+
 }
 
 /* ================================ PHASE 3 ================================ */
